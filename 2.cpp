@@ -41,7 +41,50 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+      ListNode *newL1 = revertList(l1);
+      ListNode *newL2 = revertList(l2);
+      ListNode *returnNode;
+      int carry = 0;
+      while (newL1 || newL2)
+      {
+        int count = carry;
+        if (newL1)
+        {
+          count = count + newL1->val;
+        }
 
+         if (newL2)
+        {
+          count = count + newL2->val;
+        }
+        
+        int value = count % 10;
+        int carray = int(count / 10);
+        ListNode temp = ListNode(value,returnNode);
+        returnNode = &temp;
+        newL1 = newL1->next;
+        newL2 = newL2->next;
+      }
+      
+      return returnNode;
+    }
+
+    ListNode* revertList(ListNode *node) {
+
+      ListNode *newNode = node;
+      ListNode *next = node->next;
+
+      while (next)
+      {
+        /* code */
+        ListNode *temp = next->next;
+        next->next = newNode;
+        newNode = next;
+        next = temp;
+        
+      }
+      
+      return newNode;
     }
 };
 

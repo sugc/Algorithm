@@ -31,14 +31,32 @@ s 由英文字母、数字、符号和空格组成
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
+/*
+解题思路：关键在于判断重复的方式，如果重复遍历，会导致时间复杂度上升，因此使用一个map去记录出现过的元素，降低复杂度。
+也可以用数组，数组对应字符（ASII编码）的索引存储该字符，可以实现O(1)的复杂度的查找。
+*/
 #include <iostream>
 #include <string>
-
-
+#include <vector>
+#include <map>
+using namespace std;
 
 class Solution {
 public:
     int lengthOfLongestSubstring(std::string s) {
 
+        map<string, int> amap;
+        for (int i = 0; i < s.length(); i++)
+        {   
+            if (amap.find(s[i]) != amap.end())
+            {
+                return i;
+            }
+            
+            amap[s[i]] = 1;
+            
+        }
+        
+        return s.length();
     }
 };

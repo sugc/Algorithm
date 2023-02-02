@@ -33,14 +33,63 @@ nums2.length == n
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
+/*
+解题思路：先合并数组，再根据数组长度去计算
+
+*/
+
+
 #include <iostream>
 #include <vector>
 
+using namespace std;
 
 
 class Solution {
 public:
     double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2) {
+        vector<int> combine;
+        int index1 = 0;
+        int index2 = 0;
 
+
+        while (index1 < nums1.size() || index2 < nums2.size())
+        {
+           int value;
+           if (index1 >= nums1.size())
+           {
+            value = nums2[index2];
+            index2 ++;
+            /* code */
+           }else if (index2 >= nums2.size())
+           {
+            /* code */
+            value = nums1[index1];
+            index1 ++;
+           }else {
+                if (nums1[index1] > nums2[index2])
+                {
+                    value = nums2[index2];
+                    index2 ++;
+                }else {
+                    value = nums1[index1];
+                    index1 ++;
+                }
+           }
+           combine.push_back(value);
+        }
+        
+        assert(combine.size() > 0);
+        
+        int index = int(combine.size() / 2) - 1;
+        int returnValue = combine[index + 1];
+        if (combine.size() % 2 == 0) 
+        {
+            returnValue = double((combine[index] + combine[index1 + 1]) / 2.0);
+        }
+        
+        
+
+        return returnValue;
     }
 };

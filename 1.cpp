@@ -78,7 +78,6 @@ int * getMyTarget(int target, int *nums, int length) {
     }
 
     return  returnValue;
-    
 }
 
 /*
