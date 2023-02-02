@@ -53,13 +53,17 @@ public:
         if (isPalindrome(s))
         {
             /* code */
-            return s
+            return s;
         }
 
         string sub1 = s.substr(1, s.length() - 1);
+        string palind1 = longestPalindrome(sub1);
+
+        string sub2 = s.substr(0, s.length() - 1);
+        string palind2 = longestPalindrome(sub2);
+
         
-        
-        
+        return sub1.length() > sub2.length() ? sub1 : sub2;
 
     }
 

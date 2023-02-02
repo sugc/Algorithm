@@ -27,6 +27,20 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
+/*
+
+解题思路：
+匹配规则需要考虑.*， a*这两个比较关键的情况
+例如 s="aabbbbbbaa", p="a*b.*a";
+此时，需要考虑a的匹配
+
+对p进行拆解 如 p="a*b.*a" 拆解为
+
+[a*],[.*], [a]
+
+
+*/
+
 #include <string>
 #include <vector>
 using namespace std;
@@ -35,6 +49,9 @@ using namespace std;
 class Solution {
 public:
     bool isMatch(string s, string p) {
+
+        
+
 
     }
 };
