@@ -37,6 +37,24 @@ n == height.length
 /*
 解题思路：
 
+1, 暴力方式，遍历两次，复杂度O(n2)
+
+2， 使用递归方式, 对于数组F(0,n),
+ 假设i，j 有 0 <= i < j <= n.
+ 用count(i,j) =  (i - j) * min(F[i], F[j]) 表示这两个点存水容量
+ 
+
+max F(i, j) = {
+    
+    c1 = count(i, j) 
+   
+    return max(c1, max F(i + 1, j), max F(i, j -1));
+
+}
+
+3, 双指针方式，最优
+
+
 */
 
 #include <string>
@@ -46,6 +64,8 @@ using namespace std;
 class Solution {
 public:
     int maxArea(vector<int>& height) {
+        
+
 
     }
 };
