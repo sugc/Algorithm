@@ -16,16 +16,14 @@ public:
         {
            for (int j = 0; j < i; j++)
            {
-             if (/* condition */)
+             if (nums[j] > nums[j+1])
              {
-                /* code */
+                int temp = nums[j];
+                nums[j] = nums[j+1];
+                nums[j+1] = temp;
              }
-             
            }
-           
-
         }
-        
-
+        return nums;
     }
 };

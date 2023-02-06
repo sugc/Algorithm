@@ -38,6 +38,8 @@
 
 [a*],[.*], [a]
 
+使用动态规划进行解题
+
 
 */
 
@@ -50,7 +52,7 @@ class Solution {
 public:
     bool isMatch(string s, string p) {
 
-        
+
 
 
     }

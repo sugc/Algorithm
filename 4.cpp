@@ -79,8 +79,9 @@ public:
            combine.push_back(value);
         }
         
+        //断言，避免无内容时出错
         assert(combine.size() > 0);
-        
+
         int index = int(combine.size() / 2) - 1;
         int returnValue = combine[index + 1];
         if (combine.size() % 2 == 0) 
